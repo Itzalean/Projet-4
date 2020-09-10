@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <title>Bienvenue sur le site d'Ocorino</title>
+</head>
+
+<body>
+    <header class="container-fluid bg-dark row fixed-top">
+        <nav class="col navbar navbar-expand-md navbar-dark">
+            <a class="navbar-brand" href="index.html">Orinoco</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarContent" class="collapse navbar-collapse justify-content-end">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a href="index.html" class="nav-link">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="panier.html" class="nav-link" id="panierLnk">Panier <span class="bg-danger text-white rounded" id="nbProduits"></span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container row mx-auto" id="main">
+        <h1 class="h1 col-12 text-center mt-5 pt-4">Votre panier</h1>
+        <h2 class="h2 text-primary">Contenu du panier</h2>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th scope="col" class="col-1 text-center">#</th>
+                    <th scope="col">Produit</th>
+                    <th scope="col" class="col-2 text-right">Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="text-center"></td>
+                    <td class="text-left"></td>
+                    <td class="text-right"></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th scope="row"></th>
+                    <th class="table-dark">Total</th>
+                    <th class="text-right table-dark"></th>
+                </tr>
+            </tfoot>
+        </table>
+
+        <form class="form container my-5 border border-warning rounded">
+            <h2 class="h2">Validation de votre commande</h2>
+            <fieldset>
+                <legend>Saisissez vos coordonnées</legend>
+                <small class="form-text text-muted mb-3">Tous les champs sont obligatoires.</small>
+                <div class="row">
+                    <label class="col-3" for="prenom">Prénom&nbsp;:&nbsp;</label>
+                    <input type="text" class="col-6 my-2 " name="prenom" id="prenom" required>
+                </div>
+                <div class="row">
+                    <label class="col-3 control-label" for="nom">Nom&nbsp;:&nbsp;</label>
+                    <input type="input" class="col-6 my-2" name="nom" id="nom" required>
+                </div>
+                <div class="row">
+                    <label class="col-3" for="adresse">Adresse&nbsp;:&nbsp;</label>
+                    <textarea class="col-9 my-2" name="adresse" id="adresse" required></textarea>
+                </div>
+                <div class="row">
+                    <label class="col-3" for="ville">Ville&nbsp;:&nbsp;</label>
+                    <input type="input" class="col-6 my-2" name="ville" id="ville" required>
+                </div>
+                <div class="row">
+                    <label class="col-3" for="email">E-mail&nbsp;:&nbsp;</label>
+                    <input type="email" class="col-6 my-2" name="email" id="email" required>
+                </div>
+                <div class="row justify-content-around my-5">
+                    <button name="buttonValid" type="submit" class="col-4 btn btn-success btn-lg">Valider la commande</button>
+                    <button type="button" name="buttonCancel" class="col-4 btn btn-primary btn-lg">Retour</button>
+                </div>
+            </fieldset>
+       </form>
+
+       <section>
+            <h2 class="h2 text-primary">Merci de votre confiance</h2>
+            <p class="text-justify">Nous vous remercions pour votre confiance. Votre commande référence <span id="numOrder" class="text-danger font-weight-bold"></span> vous sera livrée dans les plus brefs délais.
+            </p>
+            <div class="row justify-content-around my-5">
+                <button name="buttonEnd" class="col-4 btn btn-primary btn-lg" action="index.hyml">Retour à l'accueil</button>
+            </div>
+       </section>
+
+    </main>
+
+    <footer class="container-fluid bg-dark mt-5">
+        <img src="Images/Orinoco.png" class="col-12 mx-auto w-25">
+    </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/funcs.js"></script>
+    <script type="text/javascript" src="js/panier.js"></script>
+</body>
+</html>
