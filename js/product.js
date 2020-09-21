@@ -1,15 +1,16 @@
-const pageDetail = (id) => {request("http://localhost:4000/api/teddies" + "/" + id)
+// Récupération des données du produit
+const pageDetail = (id) => {request("http://localhost:3000/api/teddies" + "/" + id)
 	.then(data => displayProduct(data))
 	.catch(error => xhrErr(error))
 }
 
 let paramId = location.search.split('?');
-console.log(paramId[1]);
+
 countProduits();
 pageDetail(paramId[1]);
 
+// Remplissage de la page avec les données du produit
 function displayProduct(produit){
-	console.log(produit);
 
 	let h1Elt = document.querySelector('h1');
 	h1Elt.textContent = produit.name;
@@ -33,6 +34,7 @@ function displayProduct(produit){
 		selectElt.options.add(optionElt);
 	}
 
+	// Gestion du "click" sur le botton de validation
 	let btnValidElt = document.querySelector('button[name="buttonValid"]');
 	btnValidElt.addEventListener('click', function(e) {
 		e.preventDefault();
@@ -41,6 +43,7 @@ function displayProduct(produit){
 		location.assign('index.html');
 	});
 
+	// Gestion du "click" sur le botton d'annulation
 	let btnCancelElt = document.querySelector('button[name="buttonCancel"]');
 	btnCancelElt.addEventListener('click', function() {
 		location.assign('index.html');

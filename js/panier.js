@@ -1,5 +1,6 @@
-const sendOrder = (objPrm) => {request("http://localhost:4000/api/teddies/order", objPrm, "POST")
-.then(data => coucou(data))
+// Envoi de la commande au serveur
+const sendOrder = (objPrm) => {request("http://localhost:3000/api/teddies/order", objPrm, "POST")
+.then(data => validation(data))
 .catch(error => xhrErr(error))
 }
 
@@ -38,6 +39,7 @@ if (contenuPanier.length == 0) {
 		e.preventDefault();
 		e.stopPropagation();
 		if (formElt.reportValidity() == false) {
+			checkForm();
 			return;
 		}
 		let listeProduits = [];
@@ -55,8 +57,8 @@ if (contenuPanier.length == 0) {
 			},
 			products: listeProduits
 		}
+
 		let jsonObj = JSON.stringify(obj);
-		console.log(jsonObj);
 		sendOrder(jsonObj);
 		}
 	);
@@ -104,7 +106,7 @@ function generateTable() {
 //   1) On vide le localStorage qui n'a plus de raison d'être
 //   2) On enlève le formulaire
 //   3) On affiche un message de remerciements
-function coucou(data) {
+function validation(data) {
 
 	resetProduits();
 	countProduits();
@@ -122,4 +124,26 @@ function coucou(data) {
 	btnEndElt.addEventListener('click', function() {
 		location.assign('index.html');
 	});
+}
+
+function checkForm() {
+	//   Suppression des éventeul messages d'erreur
+ // 	let elementsAlert = document.querySelectorAll('.alert-danger');
+	// if (elementsAlert !== null) {
+	//  	for (element of elementsAlert) {
+	//  		element.parentNode.removeChild(element);
+	//  	}
+ // 	}
+
+ 	//   Contrôle et affichage des erreurs
+ 	// let falseElements = document.querySelectorAll("input, textarea");
+ 	// falseElements.forEach(element => {
+ 	// 	if (element.value.trim() === "") {
+ 	// 		element.value = "";
+ 	// 		let alertElt = document.createElement('div');
+ 	// 		alertElt.classList = "col-6 alert alert-danger show mx-auto";
+ 	// 		alertElt.innerHTML = "Ce champ est obligatoire";
+ 	// 		element.parentNode.insertBefore(alertElt, element.nextSibling);
+ 	// 	}
+ 	// });
 }

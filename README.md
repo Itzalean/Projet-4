@@ -1,3 +1,12 @@
 # Projet-4
 
-Construisez une API sécurisée pour une application d'avis gastronomiques
+Construisez un site e-commerce
+
+## Utilisation : ##
+
+- Téléchargez le serveur et lancez-le
+- Clonez le code source :
+```sh
+$ git clone https://github.com/Itzalean/Projet-4.git
+```
+- Affichez `index.html` dans votre navigateur web

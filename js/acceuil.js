@@ -1,3 +1,13 @@
+// Récupération de la liste des produits à afficher
+const pageAccueil = () => {request("http://localhost:3000/api/teddies")
+	.then(produits => generateAccueil(produits))
+	.catch(error => xhrErr(error));
+}
+
+countProduits();
+pageAccueil();
+
+//   Creation des vignettes pour chaque produit
 function generateAccueil(produits) {
 	window.scroll(top);
 
@@ -5,22 +15,19 @@ function generateAccueil(produits) {
 	let i = 0;
 
 	for (produit of produits) {
+		// On ne génère pas une nouvelle vignette pour le premier produit
 		if (i > 0) {
 			articleElt = articleElt.cloneNode(true);
 		}
 		i++;
 
-		console.log(produit.name);
-
+		// Création du contenu de la vignette
 		let aElt = articleElt.querySelector('a');
 		let figureElt = articleElt.querySelector('figure');
 		let ImageElt = articleElt.querySelector('img');
 		let figcaptionElt = articleElt.querySelector('figcaption');
 
 		aElt.dataset.id = produit._id;
-		// aElt.addEventListener('click', function() {
-		// 	pageDetail(this.dataset.id);
-		// });
 		aElt.addEventListener('click', function() {
 			location.assign('produit.html?' + this.dataset.id);
 		});
@@ -30,14 +37,8 @@ function generateAccueil(produits) {
 		ImageElt.title = produit.name;
 		figcaptionElt.textContent = produit.name + " - " + Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(produit.price / 100);
 
-//		figureElt.appendChild(ImageElt);
-//		figureElt.appendChild(figcaptionCardElt);
-//		aElt.appendChild(figureElt);
-//		cardElt.appendChild(aElt);
-//		deckElt.appendChild(cardElt);
 		if (i > 0) {
 			mainElt.appendChild(articleElt);
 		}
-//		document.getElementById('main').appendChild(deckElt);
 	}
 }

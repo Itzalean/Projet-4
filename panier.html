@@ -64,10 +64,13 @@
             <h2 class="h2">Validation de votre commande</h2>
             <fieldset>
                 <legend>Saisissez vos coordonnées</legend>
-                <small class="form-text text-muted mb-3">Tous les champs sont obligatoires.</small>
+                <div class="alert alert-success alert-dismissible fade show" role="alert"> Tous les champs sont obligatoires
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button></div>
                 <div class="row">
                     <label class="col-3" for="prenom">Prénom&nbsp;:&nbsp;</label>
-                    <input type="text" class="col-6 my-2 " name="prenom" id="prenom" required>
+                    <input type="input" class="col-6 my-2 " name="prenom" id="prenom" required>
                 </div>
                 <div class="row">
                     <label class="col-3 control-label" for="nom">Nom&nbsp;:&nbsp;</label>
