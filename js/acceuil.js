@@ -9,7 +9,6 @@ pageAccueil();
 
 //   Creation des vignettes pour chaque produit
 function generateAccueil(produits) {
-	window.scroll(top);
 
 	let articleElt = document.querySelector('article');
 	let i = 0;
@@ -29,7 +28,9 @@ function generateAccueil(produits) {
 
 		aElt.dataset.id = produit._id;
 		aElt.addEventListener('click', function() {
-			location.assign('produit.html?' + this.dataset.id);
+			// Utilisation du localStorage pour passer le produit en paramètre
+			localStorage.produit = this.dataset.id;
+			location.assign('produit.html');
 		});
 
 		ImageElt.src = produit.imageUrl;

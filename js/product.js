@@ -4,10 +4,12 @@ const pageDetail = (id) => {request("http://localhost:3000/api/teddies" + "/" + 
 	.catch(error => xhrErr(error))
 }
 
-let paramId = location.search.split('?');
+// Récupération de l'ID du produit dans le localStorage
+let paramId = localStorage.produit;
+window.localStorage.removeItem('produit');
 
 countProduits();
-pageDetail(paramId[1]);
+pageDetail(paramId);
 
 // Remplissage de la page avec les données du produit
 function displayProduct(produit){

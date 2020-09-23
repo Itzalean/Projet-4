@@ -1,13 +1,3 @@
-// Récupération du contenu du panier
-function getPanier() {
-	contenuPanier = localStorage.panier;
-	if (contenuPanier === undefined) {
-		contenuPanier = [];
-	} else {
-		contenuPanier = JSON.parse(contenuPanier);
-	}
-}
-
 let contenuPanier = [];
 let mainElt = document.querySelector('main');
 
@@ -41,19 +31,29 @@ function xhrErr(e) {
 	mainElt.appendChild(errorElt);
 }
 
-// Décompte du nombre de produits dans le panier
-function countProduits () {
-	getPanier();
-	let nombreProduits = document.getElementById('nbProduits');
-	nombreProduits.innerHTML = "&nbsp" + contenuPanier.length + "&nbsp";
-}
-
 // Ajout d'un produit dans le panier
 function addProduit (id, nom, prix) {
 	let detailProduit = [id, nom, prix];
 	contenuPanier.push(detailProduit);
 	localStorage.panier = JSON.stringify(contenuPanier);
 	countProduits();
+}
+
+// Récupération du contenu du panier
+function getPanier() {
+	contenuPanier = localStorage.panier;
+	if (contenuPanier === undefined) {
+		contenuPanier = [];
+	} else {
+		contenuPanier = JSON.parse(contenuPanier);
+	}
+}
+
+// Décompte du nombre de produits dans le panier
+function countProduits () {
+	getPanier();
+	let nombreProduits = document.getElementById('nbProduits');
+	nombreProduits.innerHTML = "&nbsp" + contenuPanier.length + "&nbsp";
 }
 
 // suppression du panier après validation de commande

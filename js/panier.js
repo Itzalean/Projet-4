@@ -39,7 +39,6 @@ if (contenuPanier.length == 0) {
 		e.preventDefault();
 		e.stopPropagation();
 		if (formElt.reportValidity() == false) {
-			checkForm();
 			return;
 		}
 		let listeProduits = [];
@@ -124,26 +123,4 @@ function validation(data) {
 	btnEndElt.addEventListener('click', function() {
 		location.assign('index.html');
 	});
-}
-
-function checkForm() {
-	//   Suppression des éventeul messages d'erreur
- // 	let elementsAlert = document.querySelectorAll('.alert-danger');
-	// if (elementsAlert !== null) {
-	//  	for (element of elementsAlert) {
-	//  		element.parentNode.removeChild(element);
-	//  	}
- // 	}
-
- 	//   Contrôle et affichage des erreurs
- 	// let falseElements = document.querySelectorAll("input, textarea");
- 	// falseElements.forEach(element => {
- 	// 	if (element.value.trim() === "") {
- 	// 		element.value = "";
- 	// 		let alertElt = document.createElement('div');
- 	// 		alertElt.classList = "col-6 alert alert-danger show mx-auto";
- 	// 		alertElt.innerHTML = "Ce champ est obligatoire";
- 	// 		element.parentNode.insertBefore(alertElt, element.nextSibling);
- 	// 	}
- 	// });
 }
