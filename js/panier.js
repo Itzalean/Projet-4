@@ -48,11 +48,11 @@ if (contenuPanier.length == 0) {
 		}
 		let obj = {
 			contact: {
-			firstName: document.getElementById('prenom').value,
-			lastName: document.getElementById('nom').value,
-			address: document.getElementById('adresse').value,
-			city: document.getElementById('ville').value,
-			email: document.getElementById('email').value
+				firstName: document.getElementById('prenom').value,
+				lastName: document.getElementById('nom').value,
+				address: document.getElementById('adresse').value,
+				city: document.getElementById('ville').value,
+				email: document.getElementById('email').value
 			},
 			products: listeProduits
 		}
@@ -94,9 +94,8 @@ function generateTable() {
 		prixCell.textContent = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(contenuPanier[i][2] / 100);
 
 		totalPanier += contenuPanier[i][2];
-		if (i > 0) {
-			document.querySelector('tbody').appendChild(trElt);
-		}
+
+		document.querySelector('tbody').appendChild(trElt);
 	}
 	document.querySelector('tfoot th.text-right').textContent = Intl.NumberFormat('fr-FR', { style: 'currency', currency: 'EUR' }).format(totalPanier / 100);
 }

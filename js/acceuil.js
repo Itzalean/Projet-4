@@ -18,11 +18,9 @@ function generateAccueil(produits) {
 		if (i > 0) {
 			articleElt = articleElt.cloneNode(true);
 		}
-		i++;
 
 		// Création du contenu de la vignette
 		let aElt = articleElt.querySelector('a');
-		let figureElt = articleElt.querySelector('figure');
 		let ImageElt = articleElt.querySelector('img');
 		let figcaptionElt = articleElt.querySelector('figcaption');
 
@@ -41,5 +39,6 @@ function generateAccueil(produits) {
 		if (i > 0) {
 			mainElt.appendChild(articleElt);
 		}
+		i++;
 	}
 }

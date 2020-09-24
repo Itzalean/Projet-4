@@ -30,7 +30,7 @@ function displayProduct(produit){
 	prixElt.appendChild(valPrixElt);
 
 	let selectElt = document.querySelector('select');
-		for (color of produit.colors) {
+	for (color of produit.colors) {
 		let optionElt = document.createElement('option');
 		optionElt.text = color;
 		selectElt.options.add(optionElt);
